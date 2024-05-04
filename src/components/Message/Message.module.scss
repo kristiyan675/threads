@@ -1,0 +1,16 @@
+@use "../../styles/variables.scss";
+
+.lowRateMsg {
+  @include variables.message(variables.$lowRate);
+}
+
+.highRateMsg {
+  @include variables.message(variables.$highRateMsg);
+}
+
+.messages {
+  position: absolute;
+  right: 5%;
+  top: -10px;
+  padding: 0 25px;
+}

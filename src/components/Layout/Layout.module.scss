@@ -1,12 +1,16 @@
 .layout {
+  margin: 0 auto;
+  max-width: 768px;
+  min-width: 320px;
+  padding: 1rem 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  min-width: 320px;
-  max-width: 768px;
-  flex-grow: 1;
-  background-color: yellow;
-  @media (min-width: 769px) {
-    align-items: stretch;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media (max-width: 400px) {
+  .layout {
+    padding: 1rem 0rem; /* Reduced padding for smaller screens */
   }
 }
