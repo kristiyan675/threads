@@ -1,13 +1,19 @@
-import React, { useState } from "react";
 import styles from "./Thread.module.scss";
 import { dateFormatter } from "../../services/helpers";
 import useThread from "./useThread";
 import Message from "../Message/Message";
 const ThreadComponent = ({ threads }) => {
-  const { isExpanded, toggleExpand, threadLength, shouldShowMessage } =
-    useThread(threads);
+  const {
+    isExpanded,
+    toggleExpand,
+    threadLength,
+    shouldShowMessage,
+    getThreadClassName,
+    getThreadStyle,
+  } = useThread(threads);
 
   return (
+    // container with fixed min-max sizes
     <div
       className={styles.threadContainer}
       style={isExpanded ? { padding: 0 } : {}}
@@ -15,23 +21,10 @@ const ThreadComponent = ({ threads }) => {
       {threads.map((thread, index) => (
         <div
           key={index}
-          className={[
-            styles.threadContent,
-            threadLength > 1 && styles.expandable, // set hover effect only if there are multiple posts
-          ].join(" ")}
-          style={
-            !isExpanded
-              ? {
-                  transform: `translate(${index * 5}px, ${index * 5}px)`, // makes the stacked posts pop out on bottom right corner
-                  zIndex: 0 - index, // set the zindex further for each new post
-                }
-              : {
-                  position: "unset", // aligns the posts when expanded
-                }
-          }
+          className={getThreadClassName()}
+          style={getThreadStyle(index)}
           onClick={() => {
-            // set callback to expand only if there are multiple posts
-            threadLength > 1 && toggleExpand(true);
+            if (threadLength > 1) toggleExpand(true); // set callback to expand only if there are multiple posts
           }}
         >
           {shouldShowMessage(threadLength, index, isExpanded) && (
