@@ -30,7 +30,7 @@ The application dynamically loads message thread data and renders them in and ex
 2. Navigate to folder
 
    ```
-   cd your-project-repo
+   cd threads
 
    ```
 
