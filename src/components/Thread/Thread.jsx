@@ -14,10 +14,7 @@ const ThreadComponent = ({ threads }) => {
 
   return (
     // container with fixed min-max sizes
-    <div
-      className={styles.threadContainer}
-      style={isExpanded ? { padding: 0 } : {}}
-    >
+    <div className={styles.threadContainer}>
       {threads.map((thread, index) => (
         <div
           key={index}
