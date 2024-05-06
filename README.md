@@ -24,14 +24,12 @@ The application dynamically loads message thread data and renders them in and ex
 
    ```
    https://github.com/kristiyan675/threads.git
-
    ```
 
 2. Navigate to folder
 
    ```
    cd threads
-
    ```
 
 3. Install dependencies
@@ -44,7 +42,6 @@ The application dynamically loads message thread data and renders them in and ex
 
    ```
    npm run server
-
    ```
 
 5. Run the app in a new terminal
